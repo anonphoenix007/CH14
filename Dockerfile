@@ -1,20 +1,7 @@
-
-FROM node:lts-buster
-
-RUN apt-get update && \
-  apt-get install -y \
-  ffmpeg \
-  imagemagick \
-  webp && \
-  apt-get upgrade -y && \
-  rm -rf /var/lib/apt/lists/*
-
-COPY package.json .
-
-RUN npm install && npm install qrcode-terminal
-
-COPY . .
-
+FROM quay.io/taira_makino/taira_tech:latest
+RUN git clone https://github.com/Anonphoenix007/CH13 /root/CH14
+WORKDIR /root/CH14/
+RUN npm install npm@latest
+RUN npm install
 EXPOSE 3000
-
 CMD ["node", "index.js", "--server"]
